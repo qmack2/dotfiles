@@ -214,7 +214,7 @@ screens = [
                        scale = "True",
 					   background = colors[1],
                        ),               
-                widget.OpenWeather(location = "elora,CA", format = '☁ {main_temp} °{units_temperature}', background = colors[1],padding = 2),
+                widget.OpenWeather(location = "New York", format = '☁ {main_temp} °{units_temperature}', background = colors[1],padding = 2),
                 widget.Image(
                        filename = "~/.config/qtile/icons/mid-sep.png",
                        scale = "True",
@@ -313,7 +313,7 @@ screens = [
                        scale = "True",
 					   background = colors[1],
                        ),               
-                widget.OpenWeather(location = "elora,CA", format = '☁ {main_temp} °{units_temperature}', background = colors[1],padding = 2),
+                widget.OpenWeather(location = "New York", format = '☁ {main_temp} °{units_temperature}', background = colors[1],padding = 2),
                 widget.Image(
                        filename = "~/.config/qtile/icons/mid-sep.png",
                        scale = "True",

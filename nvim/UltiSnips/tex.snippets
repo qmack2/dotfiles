@@ -1,0 +1,207 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+endglobal
+
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet frac "Fraction" i
+\\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+priority 10
+snippet "bar" "bar" riA
+\bar{$1}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet "([a-z])bar" "bar" riA
+\bar{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+priority 100
+snippet "([A-Z])bar" "bar" riA
+\overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+priority 10
+snippet "hat" "hat" riA
+\hat{$1}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet "([a-zA-Z])hat" "hat" riA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+priority 10
+snippet "til" "tilde" riA
+\tilde{$1}$0
+endsnippet
+
+snippet al "begin{align*} / end{align*}" b
+\begin{align*}
+	$0
+\end{align*}
+endsnippet
+
+snippet en "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet pmat "pmat" i
+\begin{pmatrix} $1 \end{pmatrix}$0
+endsnippet
+
+snippet bmat "bmat" i
+\begin{bmatrix} $1 \end{bmatrix}$0
+endsnippet
+
+snippet rb "left( right)" i
+\left( ${1:${VISUAL}} \right)$0
+endsnippet
+
+snippet cb "\{\}" w
+\\{ ${1:${VISUAL}} \\} $0
+endsnippet
+
+snippet lcb "left\{ right\}" w
+\left\\{ ${1:${VISUAL}} \right\\} $0
+endsnippet
+
+snippet rsb "left[ right]" i
+\left[ ${1:${VISUAL}} \right] $0
+endsnippet
+
+snippet sum "sum" w
+\sum_{$1}^{${2:\infty}} $0
+endsnippet
+
+snippet prod "product" w
+\prod_{$1}^{${2:\infty}} $0
+endsnippet
+
+snippet sqrt "\sqrt{}" i
+\sqrt{${1:${VISUAL}}} $0
+endsnippet
+
+context "math()"
+snippet rn "real" i
+\mathbb{R}^n
+endsnippet
+
+snippet sec "Section"
+\section{${1:${VISUAL:section name}}}
+${0}
+endsnippet
+
+snippet sub "Subsection"
+\subsection{${1:${VISUAL:subsection name}}}
+${0}
+endsnippet
+
+snippet subsub "Subsubsection"
+\subsubsection{${1:${VISUAL:subsubsection name}}}
+${0}
+endsnippet
+
+snippet bf "Bold"
+\textbf{$1} $0
+endsnippet
+
+snippet def "definition{}" b
+\begin{definition*}{$1}
+    $0
+\end{definition*}
+endsnippet
+
+snippet the "theorem" b
+\begin{theorem*}{$1}
+    $0
+\end{theorem*}
+endsnippet
+
+snippet cor "corollary" b
+\begin{corollary*}{$1}
+    $0
+\end{corollary*}
+endsnippet
+
+snippet prop "proposition" b
+\begin{proposition*}{$1}
+    $0
+\end{proposition*}
+endsnippet
+
+snippet lem "lemma" b
+\begin{lemma*}{$1}
+    $0
+\end{lemma*}
+endsnippet
+
+snippet ex "example" b
+\begin{Example}
+    $0
+\end{Example}
+endsnippet
+
+context "math()"
+snippet ub "underbrace" i
+\underbrace{$1}_{$2}
+endsnippet
+
+snippet mini "minipage" b
+\begin{minipage}{0.45\textwidth}
+    $0
+\end{minipage}
+endsnippet
+
+snippet gr "include graphics" 
+\begin{center}
+    \includegraphics[scale=0.5]{$1}
+\end{center}
+$0
+endsnippet
+
+snippet sup "superscript" i
+\textsuperscript{$0}
+endsnippet
+
+snippet ssub "subscript" i
+\textsubscript{$0}
+endsnippet

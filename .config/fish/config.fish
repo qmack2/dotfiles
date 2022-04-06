@@ -23,6 +23,6 @@ alias fm='fm6000 -r -c=random'
 alias cr='colorscript random'
 #macchina 
 #fm6000 -r -c=random
-set x (random choice cr macchina)
+set x (random choice cr macchina starfetch)
 $x
 starship init fish | source

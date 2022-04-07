@@ -1,27 +1,26 @@
 " LOAD PLUGINS
 call plug#begin('$HOME/.local/share/nvim')
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
-" I strongly advice that you do _not_ use vim-polyglot!
-"Plug 'sheerun/vim-polyglot'
-Plug 'leafgarland/typescript-vim'
 Plug 'jiangmiao/auto-pairs'
 
 "File search and navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 "Editor interface and theming
 Plug 'itchyny/lightline.vim'
-Plug 'yggdroot/indentline'
 Plug 'arcticicestudio/nord-vim'
+Plug 'glepnir/dashboard-nvim'
 
 "Debugging, refactoring and version control
 Plug 'puremourning/vimspector'
-
 Plug 'lervag/vimtex'
-
 Plug 'sirver/ultisnips'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
 call plug#end()
+
 
 " SET OPTIONS
 set conceallevel=0
@@ -34,6 +33,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+set signcolumn=yes
 
 set showcmd
 
@@ -88,6 +88,28 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+let g:dashboard_default_executive = 'telescope'
+let g:mapleader="\<Space>"
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
+nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+
+lua require('lspconfig').texlab.setup{}
+lua local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } for type, icon in pairs(signs) do local hl = "DiagnosticSign" .. type vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl }) end
 " spellcheck
 setlocal spell
 set spelllang=en_ca

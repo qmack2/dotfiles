@@ -57,6 +57,11 @@ Then run `:PlugInstall`.
 
 Make sure you run the `:CheckHealth` command and install any missing required dependencies.
 
+Finally, we need the texlab language server. It can be found and installed [here](https://github.com/latex-lsp/texlab). Or, use the following install script:
+```sh
+cargo install --git https://github.com/latex-lsp/texlab.git --locked
+```
+
 ## Qtile
 Make sure all autostart applications are installed:
 ```bash

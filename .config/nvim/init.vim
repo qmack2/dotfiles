@@ -1,6 +1,5 @@
 " LOAD PLUGINS
 call plug#begin('$HOME/.local/share/nvim')
-Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'jiangmiao/auto-pairs'
 
 "File search and navigation
@@ -10,7 +9,10 @@ Plug 'nvim-telescope/telescope.nvim'
 "Editor interface and theming
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'navarasu/onedark.nvim'
 Plug 'glepnir/dashboard-nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'norcalli/nvim-colorizer.lua'
 
 "Debugging, refactoring and version control
 Plug 'puremourning/vimspector'
@@ -46,8 +48,8 @@ set termguicolors
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
 let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+\ 'colorscheme': 'onedarkdeep',
+\ }
 
 " Highlight matching search patterns
 set hlsearch
@@ -65,8 +67,14 @@ set smartcase
 set viminfo='100,<9999,s100
 
 " SET COLORSCHEME
-colorscheme nord
-set bg=dark
+let g:onedark_config = {
+    \ 'style': 'deep',
+\}
+colorscheme onedark
+
+lua require 'colorizer'.setup()
+
+"set bg=dark
 " Custom highlighting should be put behind the colorscheme autocmd
 autocmd ColorScheme * highlight Conceal ctermbg=none
 
@@ -108,9 +116,10 @@ nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
 nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
 nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
-lua require('lspconfig').texlab.setup{}
-lua local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } for type, icon in pairs(signs) do local hl = "DiagnosticSign" .. type vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl }) end
+lua << end
+require('lspconfig').texlab.setup{}
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } for type, icon in pairs(signs) do local hl = "DiagnosticSign" .. type vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl }) end
+end
 " spellcheck
-setlocal spell
-set spelllang=en_ca
+setlocal spell spelllang=en_ca
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

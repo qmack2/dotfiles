@@ -2,11 +2,11 @@
 
 ## Screenshots
 Desktop Screenshot
-![](/screenshots/desktop.png)
+![](/screenshots/qtile/desktop.png)
 LaTeX Workspace Screenshot
-![](/screenshots/latex.png)
+![](/screenshots/qtile/latex.png)
 Alacritty and Macchina Screenshot
-![](/screenshots/terminal.png)
+![](/screenshots/qtile/terminal.png)
 
 ## Installation
 Clone this repository and add the folders in `.config` to your local `.config` folder

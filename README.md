@@ -1,15 +1,10 @@
-# My Personal Config
+# My Personal Dotfiles
+Dotfiles for window managers AwesomeWM, Qtile, and XMonad. Go to the
+configuration directories of each window manager to see screenshots.
 
-## Screenshots
-Desktop Screenshot
-![](/screenshots/qtile/desktop.png)
-LaTeX Workspace Screenshot
-![](/screenshots/qtile/latex.png)
-Alacritty and Macchina Screenshot
-![](/screenshots/qtile/terminal.png)
-
-## Installation
-Clone this repository and add the folders in `.config` to your local `.config` folder
+# Installation
+Detailed install instructions can be found in the configuration directories of each
+window manager.
 
 # Dependencies
 ## Alacritty
@@ -18,19 +13,20 @@ Install Alacritty via:
 sudo pacman -S alacritty
 ```
 
-In Alacritty, we need Sauce Code Pro Nerd Font. Install it with:
-```bash
-yay -S nerd-fonts-source-code-pro
+## dmenu
+Install dmenu with:
+```sh
+sudo pacman -S dmenu
 ```
-or from [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
 
-## Dunst
-Just install dunst via
-```bash
-sudo pacman -S dunst
+Then after cloning this repository, cd into dmenu_*one-of-the-colorschemes* and
+run:
+```sh
+sudo make install
 ```
+
 ## Fish
-Make surve neovim and zathura are installed.
+Make sure neovim and zathura are installed.
 ```bash
 sudo pacman -S neovim zathura zathura-pdf-poppler
 ```
@@ -44,6 +40,8 @@ Install shell colorscripts and macchina
 ```bash
 yay -S shell-color-scripts macchina
 ```
+
+Install starfetch from [here](https://github.com/Haruno19/starfetch#installation).
 
 Install the starship prompt.
 ```sh
@@ -62,21 +60,19 @@ Finally, we need the texlab language server. It can be found and installed [here
 cargo install --git https://github.com/latex-lsp/texlab.git --locked
 ```
 
-## Qtile
-Make sure all autostart applications are installed:
-```bash
-sudo pacman -S picom light-locker dunst xwallpaper network-manager-applet volumeicon lxsession
-```
+## Fonts
+Install the SF-Pro font from [here](https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts). Use a [font installation guide](https://medium.com/source-words/how-to-manually-install-update-and-uninstall-fonts-on-linux-a8d09a3853b0) if needed.
 
-And then install the SF-Pro font from [here](https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts). Use a [font installation guide](https://medium.com/source-words/how-to-manually-install-update-and-uninstall-fonts-on-linux-a8d09a3853b0) if needed.
-
-And then finally install Qtile and other dependencies:
+Install Sauce Code Pro Nerd Font with:
 ```bash
-sudo pacman -S qtile mypy
+yay -S nerd-fonts-source-code-pro
 ```
+or from [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
+
 
 ## Misc
 I use autorandr to configure a docked and mobile display. Install it using:
 ```bash
 sudo pacman -S autorandr
 ```
+

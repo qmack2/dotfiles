@@ -9,9 +9,8 @@ Alacritty and Macchina Screenshot
 # Installation
 1. Install any dependencies on the home page. 
 2. WM specific dependencies:
-   - Panel widgets. Find them at [https://github.com/streetturtle/awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets)
+   - Panel widgets from [https://github.com/streetturtle/awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets)
     - Startup applications
     ```sh
     sudo pacman -S sudo pacman -S picom light-locker xwallpaper network-manager-applet volumeicon lxsession
     ```
-    - Other Qtile dependencies

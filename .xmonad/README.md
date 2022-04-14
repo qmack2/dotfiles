@@ -4,7 +4,7 @@ Desktop Screenshot
 Neovim Screenshot
 ![](/screenshots/xmonad/nvim.png)
 Alacritty and Macchina Screenshot
-![](/screenshots/qtile/terminal.png)
+![](/screenshots/xmonad/terminal.png)
 
 # Installation
 1. Install any dependencies on the home page. 

@@ -1,8 +1,6 @@
 " =============================================================================
-" Filename: autoload/lightline/colorscheme/one.vim
-" Author: Zoltan Dalmadi
-" License: MIT License
-" Last Change: 2019/09/09 22:42:48.
+" Filename: autoload/lightline/colorscheme/onedarkdeep.vim
+" Author: qmack2
 " =============================================================================
 
 " Common colors
@@ -31,9 +29,9 @@ else
   " Dark variant
   let s:fg    = [ '#93a4c3', 145 ]
   let s:bg    = [ '#1a212e', 235 ]
-  let s:gray1 = [ '#323641', 241 ]
-  let s:gray2 = [ '#282c34', 235 ]
-  let s:gray3 = [ '#30363f', 240 ]
+  let s:gray1 = [ '#141b24', 241 ]
+  let s:gray2 = [ '#141b24', 235 ]
+  let s:gray3 = [ '#1a212e', 240 ]
 
   let s:p.inactive.left   = [ [ s:gray1,  s:bg ], [ s:gray1, s:bg ] ]
   let s:p.inactive.middle = [ [ s:gray1, s:gray2 ] ]

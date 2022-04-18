@@ -113,7 +113,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- GAPS!!!
     , ((modm .|. controlMask, xK_g), sendMessage $ ToggleGaps)               -- toggle all gaps
-    , ((modm .|. shiftMask, xK_g), sendMessage $ setGaps [(L,6), (R,6), (U,6), (D,6)]) -- reset the GapSpec
+    , ((modm .|. shiftMask, xK_g), sendMessage $ setGaps [(L,6), (R,6), (U,30), (D,6)]) -- reset the GapSpec
     
     , ((modm .|. controlMask, xK_t), sendMessage $ IncGap 10 L)              -- increment the left-hand gap
     , ((modm .|. shiftMask, xK_t     ), sendMessage $ DecGap 10 L)           -- decrement the left-hand gap
@@ -339,7 +339,7 @@ defaults = def {
 
       -- hooks, layouts
         manageHook = insertPosition End Newer <+> myManageHook, 
-        layoutHook = gaps [(L,6), (R,6), (U,6), (D,6)] $ spacingRaw True (Border 6 6 6 6) True (Border 6 6 6 6) True $ smartBorders $ myLayout,
+        layoutHook = gaps [(L,6), (R,6), (U,30), (D,6)] $ spacingRaw True (Border 6 6 6 6) True (Border 6 6 6 6) True $ smartBorders $ myLayout,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook >> addEWMHFullscreen

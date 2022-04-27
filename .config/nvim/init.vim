@@ -7,12 +7,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 "Editor interface and theming
-Plug 'itchyny/lightline.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'navarasu/onedark.nvim'
 Plug 'glepnir/dashboard-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'NTBBloodbath/galaxyline.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 "Debugging, refactoring and version control
 Plug 'puremourning/vimspector'
@@ -47,10 +47,11 @@ set number
 set termguicolors
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
-let g:lightline = {
-\ 'colorscheme': 'onedarkdeep',
-\ }
+"let g:lightline = {
+"\ 'colorscheme': 'onedarkdeep',
+"\ }
 
+lua require("galaxyline.themes.onedarkdeep")
 " Highlight matching search patterns
 set hlsearch
 

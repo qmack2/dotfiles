@@ -304,11 +304,11 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "picom"
-  spawnOnce "xwallpaper --stretch ~/Pictures/Wallpapers/arco-wallpaper.jpg"
+  spawnOnce "xwallpaper --stretch ~/Pictures/Wallpapers/waves.jpg"
   spawn     "~/.config/polybar/launch.sh"
   spawnOnce "dunst"
   spawnOnce "light-locker --lock-on-lid"
-  spawnOnce "lxsession"
+  spawnOnce "/usr/lib/polkit-kde-authentication-agent-1"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 

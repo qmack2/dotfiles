@@ -309,6 +309,7 @@ myStartupHook = do
   spawnOnce "dunst"
   spawnOnce "light-locker --lock-on-lid"
   spawnOnce "/usr/lib/polkit-kde-authentication-agent-1"
+  spawnOnce "nm-applet"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 

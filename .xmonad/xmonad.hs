@@ -26,7 +26,7 @@ import Data.Maybe (maybeToList)
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "alacritty"
+myTerminal      = "kitty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -92,6 +92,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- dmenu and browser
     , ((modm,               xK_p     ), spawn "dmenu_run")
     , ((modm .|. shiftMask, xK_b     ), spawn "brave --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
+    , ((modm,               xK_b     ), spawn "chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
+
 
     -- Audio keys
     , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")

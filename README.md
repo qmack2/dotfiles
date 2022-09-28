@@ -13,6 +13,13 @@ Install Alacritty via:
 sudo pacman -S alacritty
 ```
 
+## Kitty
+Install Kitty with:
+```bash
+sudo pacman -S kitty
+
+```
+
 ## dmenu
 Install dmenu with:
 ```sh
@@ -69,6 +76,10 @@ yay -S nerd-fonts-source-code-pro
 ```
 or from [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
 
+Install Fira Code Nerd Font with:
+```bash
+paru -S nerd-fonts-fira-code ttf-fira-code
+```
 
 ## Misc
 I use autorandr to configure a docked and mobile display. Install it using:

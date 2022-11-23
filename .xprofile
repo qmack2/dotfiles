@@ -1,3 +1,4 @@
 #!/bin/sh
 
+udiskie &
 autorandr -c &

@@ -92,7 +92,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- dmenu and browser
     , ((modm,               xK_p     ), spawn "dmenu_run")
     , ((modm .|. shiftMask, xK_b     ), spawn "brave --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
-    , ((modm,               xK_b     ), spawn "chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
+    , ((modm,               xK_b     ), spawn "vivaldi-stable --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
 
 
     -- Audio keys
@@ -270,6 +270,7 @@ myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
 --
 myManageHook = fullscreenManageHook <+> manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doFloat
+    , className =? "galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
@@ -306,7 +307,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "picom"
-  spawnOnce "xwallpaper --stretch ~/Pictures/Wallpapers/waves.jpg"
+  spawn "xwallpaper --stretch ~/Pictures/Wallpapers/waves.jpg"
   spawn     "~/.config/polybar/launch.sh"
   spawnOnce "dunst"
   spawnOnce "light-locker --lock-on-lid"

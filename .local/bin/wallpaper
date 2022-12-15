@@ -1,0 +1,4 @@
+#! /bin/bash
+cd ~/Pictures/Wallpapers 
+wget https://source.unsplash.com/random/3840x2160 -O wallpaper.jpg
+xwallpaper --stretch ~/Pictures/Wallpapers/wallpaper.jpg

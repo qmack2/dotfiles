@@ -91,8 +91,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- dmenu and browser
     , ((modm,               xK_p     ), spawn "dmenu_run")
-    , ((modm .|. shiftMask, xK_b     ), spawn "brave --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
-    , ((modm,               xK_b     ), spawn "vivaldi-stable --use-gl=desktop --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecode")
+    , ((modm .|. shiftMask, xK_b     ), spawn "brave-browser")
+    , ((modm,               xK_b     ), spawn "vivaldi-stable")
 
 
     -- Audio keys
@@ -307,11 +307,11 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "picom"
-  spawn "xwallpaper --stretch ~/Pictures/Wallpapers/waves.jpg"
+  spawn     "xwallpaper --stretch ~/Pictures/Wallpapers/wallpaper.jpg"
   spawn     "~/.config/polybar/launch.sh"
   spawnOnce "dunst"
-  spawnOnce "light-locker --lock-on-lid"
-  spawnOnce "/usr/lib/polkit-kde-authentication-agent-1"
+--  spawnOnce "light-locker --lock-on-lid"
+  spawnOnce "lxsession"
   spawnOnce "nm-applet"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

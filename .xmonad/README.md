@@ -11,7 +11,7 @@ Alacritty and Macchina Screenshot
 2. WM specific dependencies:
     - Startup applications
     ```sh
-    sudo pacman -S picom xwallpaper polybar dunst light-locker lxsession
+    sudo pacman -S picom xwallpaper polybar dunst light-locker lxqt-policykit
     ```
     - Make sure all the polybar scripts are executable with `chmod +x <NAME OF
       FILE>.sh` 

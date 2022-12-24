@@ -311,7 +311,7 @@ myStartupHook = do
   spawn     "~/.config/polybar/launch.sh"
   spawnOnce "dunst"
 --  spawnOnce "light-locker --lock-on-lid"
-  spawnOnce "lxsession"
+  spawnOnce "lxpolkit" -- lxqt-policykit on arch
   spawnOnce "nm-applet"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
